@@ -21,6 +21,7 @@ export const StudentAddCourse = () =>
     const queryParams = new URLSearchParams(location.search);
     const [currentPage, setCurrentPage] = useState(0);
     const id = queryParams.get('id');
+    console.log(id);
 
     const coursesPerPage = 6;
 
@@ -87,6 +88,7 @@ export const StudentAddCourse = () =>
     const [search, setSearch] = useState('');
     const [courses, getCourses] = useState([]);
 
+    console.log(search);
     function handlePageClick(selectedPage) {
         setCurrentPage(selectedPage.selected);
     }

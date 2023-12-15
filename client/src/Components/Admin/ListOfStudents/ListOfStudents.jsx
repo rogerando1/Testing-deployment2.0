@@ -24,6 +24,7 @@ const ListOfStudents = () => {
         `http://localhost:3002/deleteStudentUser/${studentId}`
       );
       fetchStudents();
+      console.log(response);
     } catch (error) {
       console.error("Error deleting student:", error);
     }

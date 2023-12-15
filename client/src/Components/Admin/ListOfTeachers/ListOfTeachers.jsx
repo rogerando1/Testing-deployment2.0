@@ -23,6 +23,7 @@ const ListOfTeachers = () => {
         `http://localhost:3002/deleteTeacherUser/${teacherId}`
       );
       fetchTeachers();
+      console.log(response);
     } catch (error) {
       console.error("Error deleting teacher:", error);
     }
