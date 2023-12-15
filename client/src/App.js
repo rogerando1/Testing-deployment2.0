@@ -29,8 +29,17 @@ import ListOfStudents from "./Components/Admin/ListOfStudents/ListOfStudents";
 import ListOfTeachers from "./Components/Admin/ListOfTeachers/ListOfTeachers";
 import { Questionnaire } from "./Components/Questionnaire/Questionnaire";
 import { Certificate } from "./Components/Certificate/Certificate";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [message, setMessage] = useState("");
+
+  // Fetching message from backend on mount
+  useEffect(() => {
+    fetch("http://localhost:4000")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
     <>
       <Router>

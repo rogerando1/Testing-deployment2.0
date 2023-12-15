@@ -16,17 +16,25 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 var nodemailer = require("nodemailer");
 
-require("dotenv/config");
+// require("dotenv/config");
 
-const app = express();
+// const app = express();
+// app.use(express.json());
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000", "https://cour-cert.vercel.app"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
+
+require("dotenv").config();
+const corsOptions = {
+  origin: "http://localhost:3000" // frontend URI (ReactJS)
+}
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://cour-cert.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
+
 
 app.use(cookieParser());
 app.use("/uploaded-files", express.static("uploaded-files"));
